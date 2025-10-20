@@ -1,0 +1,310 @@
+2025-10-19 16:10:28,277 - INFO - ▶️ Starting 'callChatAPI' ... Memory: 22.85 MB
+2025-10-19 16:10:28,277 - ERROR - ❌ Error occurred in 'callChatAPI': [Errno 2] No such file or directory: 'D:\\Development\\YoutubeProjects\\Docker\\generated_audio\\cfdc0787-52af-40b5-87f9-e9a3b9a7bad5\\1.mp3'
+Traceback (most recent call last):
+  File "/scripts/utils.py", line 28, in wrapper
+    result = func(*args, **kwargs)
+  File "/scripts/chatterbox_api.py", line 20, in callChatAPI
+    with open(r"D:\Development\YoutubeProjects\Docker\generated_audio\cfdc0787-52af-40b5-87f9-e9a3b9a7bad5\1.mp3", "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Development\\YoutubeProjects\\Docker\\generated_audio\\cfdc0787-52af-40b5-87f9-e9a3b9a7bad5\\1.mp3'
+2025-10-19 20:14:10,886 - INFO - ------------------------ New Process started with path: b19ea183-623e-4524-91db-f09c78db6ec8 ------------------------
+2025-10-19 20:14:10,887 - INFO - Step 1: Generating script and image prompts via OpenAI...
+2025-10-19 20:14:10,887 - INFO - ▶️ Starting 'generate_script_and_descriptions' ... Memory: 472.04 MB
+2025-10-19 20:14:10,888 - INFO - Prompt:
+You are tasked with creating a script for success and achievement video that is about 200 seconds.
+    Your goal is to inspire people to overcome challenges, achieve success and celebrate their victories.
+    Please follow these instructions to create an engaging and impactful video:
+    1. Begin by setting the scene and capturing the viewer's attention with a captivating visual.
+    2. Each scene cut should occur every 5-10 seconds, ensuring a smooth flow and transition throughout the video.
+    3. For each scene cut, provide a detailed description of the stock image being shown add action if possible, which will be used to search Pexels api for free video.
+    4. Along with each image description, include a corresponding text that complements and enhances the visual. The text should be concise and powerful.
+    5. Make sure the story makes sense and is easy to follow, with a clear beginning, middle, and end.
+    6. Ensure that the sequence of images and text builds excitement and encourages viewers to take action.
+    7. Strictly output your response in a JSON list format, adhering to the following sample structure:
+    [
+        { "image_description": "Description of the first image here. be specific and concise. only 5 main words", "text": "Text accompanying the first scene cut." },
+        { "image_description": "Description of the second image here. be specific and concise. only 5 main words", "text": "Text accompanying the second scene cut." },
+        ...
+    ]By following these instructions, you will create an impactful success and achievement short-form video.
+    Output:
+2025-10-19 20:14:51,619 - INFO - Ollama response :
+2025-10-19 20:14:51,620 - INFO - <Response [200]>
+2025-10-19 20:14:51,620 - INFO - ✅ Finished 'generate_script_and_descriptions' | Time: 40.73s | Memory Change: 0.47 MB | Total Memory: 472.50 MB
+2025-10-19 20:14:51,621 - INFO - Final Data:
+2025-10-19 20:14:51,622 - INFO - Text 1: Challenges are inevitable. But it's up to you to overcome them.
+2025-10-19 20:14:51,622 - INFO - Image Prompt 1: Darkness and a solitary figure facing a challenge
+2025-10-19 20:14:51,623 - INFO - Text 2: Don't let fear or doubt hold you back from achieving your dreams.
+2025-10-19 20:14:51,623 - INFO - Image Prompt 2: A person pushing through an obstacle with determination
+2025-10-19 20:14:51,624 - INFO - Text 3: Mistakes happen. Learn from them, and use them as stepping stones to success.
+2025-10-19 20:14:51,624 - INFO - Image Prompt 3: A split-second decision to pivot and try again
+2025-10-19 20:14:51,624 - INFO - Text 4: The journey may be tough, but the reward is worth it. Keep pushing forward!
+2025-10-19 20:14:51,625 - INFO - Image Prompt 4: Epic scenery of sunrise with a mountain peak in view
+2025-10-19 20:14:51,625 - INFO - Text 5: Consistency and perseverance are key to achieving your goals.
+2025-10-19 20:14:51,626 - INFO - Image Prompt 5: A person in motion, running towards their goals
+2025-10-19 20:14:51,627 - INFO - Text 6: Celebrate your victories along the way. You've earned it!
+2025-10-19 20:14:51,628 - INFO - Image Prompt 6: Hands clapping together in celebration with a confetti background
+2025-10-19 20:14:51,628 - INFO - Text 7: Look back on what you've accomplished and use that momentum to propel yourself forward.
+2025-10-19 20:14:51,628 - INFO - Image Prompt 7: A person standing on top of a mountain, looking out at their accomplishments
+2025-10-19 20:14:51,628 - INFO - Text 8: Stay curious, stay creative. There's always room for growth and improvement.
+2025-10-19 20:14:51,629 - INFO - Image Prompt 8: A spark of creativity igniting with an explosion of color
+2025-10-19 20:14:51,629 - INFO - Text 9: Believe in yourself, even when no one else does. Your success is within reach!
+2025-10-19 20:14:51,629 - INFO - Image Prompt 9: A person giving a thumbs up in triumph over a challenge
+2025-10-19 20:14:51,629 - INFO - 
+Step 2: Fetching images from Pexels...
+2025-10-19 20:14:51,634 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 472.50 MB
+2025-10-19 20:14:52,776 - INFO - Pexels video search response status: 200
+2025-10-19 20:14:57,216 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/1.mp4
+2025-10-19 20:14:57,217 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 5.58s | Memory Change: 3.12 MB | Total Memory: 475.62 MB
+2025-10-19 20:14:57,218 - INFO - Image 1 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/1.mp4
+2025-10-19 20:14:57,220 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 475.62 MB
+2025-10-19 20:14:57,844 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:00,754 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/2.mp4
+2025-10-19 20:15:00,755 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 3.54s | Memory Change: 11.72 MB | Total Memory: 487.34 MB
+2025-10-19 20:15:00,756 - INFO - Image 2 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/2.mp4
+2025-10-19 20:15:00,758 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 487.34 MB
+2025-10-19 20:15:01,928 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:06,450 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/3.mp4
+2025-10-19 20:15:06,453 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 5.69s | Memory Change: -11.84 MB | Total Memory: 475.51 MB
+2025-10-19 20:15:06,453 - INFO - Image 3 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/3.mp4
+2025-10-19 20:15:06,455 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 475.51 MB
+2025-10-19 20:15:07,574 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:11,690 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/4.mp4
+2025-10-19 20:15:11,691 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 5.24s | Memory Change: 30.16 MB | Total Memory: 505.66 MB
+2025-10-19 20:15:11,691 - INFO - Image 4 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/4.mp4
+2025-10-19 20:15:11,693 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 505.66 MB
+2025-10-19 20:15:12,799 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:18,032 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/5.mp4
+2025-10-19 20:15:18,034 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 6.34s | Memory Change: 14.69 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:18,034 - INFO - Image 5 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/5.mp4
+2025-10-19 20:15:18,037 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 520.35 MB
+2025-10-19 20:15:19,458 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:20,956 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/6.mp4
+2025-10-19 20:15:20,957 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 2.92s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:20,957 - INFO - Image 6 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/6.mp4
+2025-10-19 20:15:20,959 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 520.35 MB
+2025-10-19 20:15:22,076 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:24,901 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/7.mp4
+2025-10-19 20:15:24,902 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 3.94s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:24,903 - INFO - Image 7 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/7.mp4
+2025-10-19 20:15:24,905 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 520.35 MB
+2025-10-19 20:15:25,502 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:26,082 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/8.mp4
+2025-10-19 20:15:26,083 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 1.18s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:26,084 - INFO - Image 8 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/8.mp4
+2025-10-19 20:15:26,086 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 520.35 MB
+2025-10-19 20:15:27,207 - INFO - Pexels video search response status: 200
+2025-10-19 20:15:28,018 - INFO - Video saved to /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/9.mp4
+2025-10-19 20:15:28,020 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 1.93s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:28,020 - INFO - Image 9 downloaded: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/9.mp4
+2025-10-19 20:15:28,020 - INFO - 
+Step 3: Generating audio clips with ElevenLabs TTS...
+2025-10-19 20:15:28,023 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:29,603 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.58s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:29,604 - INFO - Audio 1 generated.
+2025-10-19 20:15:29,606 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:30,995 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.39s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:30,995 - INFO - Audio 2 generated.
+2025-10-19 20:15:30,997 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:32,438 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.44s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:32,438 - INFO - Audio 3 generated.
+2025-10-19 20:15:32,441 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:33,764 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.32s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:33,764 - INFO - Audio 4 generated.
+2025-10-19 20:15:33,766 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:35,029 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.26s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:35,030 - INFO - Audio 5 generated.
+2025-10-19 20:15:35,032 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:36,277 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.25s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:36,277 - INFO - Audio 6 generated.
+2025-10-19 20:15:36,279 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:37,733 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.45s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:37,733 - INFO - Audio 7 generated.
+2025-10-19 20:15:37,736 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:39,084 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.35s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:39,085 - INFO - Audio 8 generated.
+2025-10-19 20:15:39,087 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 520.35 MB
+2025-10-19 20:15:40,783 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.70s | Memory Change: 0.00 MB | Total Memory: 520.35 MB
+2025-10-19 20:15:40,784 - INFO - Audio 9 generated.
+2025-10-19 20:15:40,784 - INFO - 
+Step 4: Creating combined video...
+2025-10-19 20:15:40,786 - INFO - ▶️ Starting 'create_video_from_videos' ... Memory: 520.35 MB
+2025-10-19 20:18:49,348 - INFO - ✅ Finished 'create_video_from_videos' | Time: 188.53s | Memory Change: 8.10 MB | Total Memory: 528.45 MB
+2025-10-19 20:18:49,376 - INFO - Combined video saved at: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/combined_video.mp4
+2025-10-19 20:18:49,377 - INFO - 
+Extracting audio from video for transcription from /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/combined_video.mp4
+2025-10-19 20:18:50,571 - INFO - Extracted audio saved at: /final_videos/b19ea183-623e-4524-91db-f09c78db6ec8/combined_video.mp3
+2025-10-19 20:18:50,584 - INFO - ▶️ Starting 'extract_word_timestamps' ... Memory: 532.36 MB
+2025-10-19 20:18:50,587 - ERROR - ❌ Error occurred in 'extract_word_timestamps': name 'WhisperModel' is not defined
+Traceback (most recent call last):
+  File "/scripts/Short_Generator_video.py", line 48, in wrapper
+    result = func(*args, **kwargs)
+  File "/scripts/Short_Generator_video.py", line 452, in extract_word_timestamps
+    model = WhisperModel(model_size)
+NameError: name 'WhisperModel' is not defined
+2025-10-19 21:02:54,571 - INFO - ------------------------ New Process started with path: 9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5 ------------------------
+2025-10-19 21:02:54,572 - INFO - Step 1: Generating script and image prompts via OpenAI...
+2025-10-19 21:02:54,573 - INFO - ▶️ Starting 'generate_script_and_descriptions' ... Memory: 100.52 MB
+2025-10-19 21:02:54,573 - INFO - Prompt:
+You are tasked with creating a script for Adventure travelling video that is about 200 seconds.
+    Your goal is to Inspire viewers to explore new destinations and embrace the thrill of adventure travel. Story: A person reaching top of mountain after a tough climb, looking at beautiful scenery, after trekking hill for 20 kilomiters, sitting and enjoying a view from the top of the mointing watching beautiful sceneries .
+    Please follow these instructions to create an engaging and impactful video:
+    1. Begin by setting the scene and capturing the viewer's attention with a captivating visual.
+    2. Each scene cut should occur every 5-10 seconds, ensuring a smooth flow and transition throughout the video.
+    3. For each scene cut, provide a detailed description of the stock image being shown add action if possible, which will be used to search Pexels api for free video.
+    4. Along with each image description, include a corresponding text that complements and enhances the visual. The text should be concise and powerful.
+    5. Make sure the story makes sense and is easy to follow, with a clear beginning, middle, and end.
+    6. Ensure that the sequence of images and text builds excitement and encourages viewers to take action.
+    7. Strictly output your response in a JSON list format, adhering to the following sample structure:
+    [
+        { "image_description": "Description of the first image here. be specific and concise. only 5 main words", "text": "Text accompanying the first scene cut." },
+        { "image_description": "Description of the second image here. be specific and concise. only 5 main words", "text": "Text accompanying the second scene cut." },
+        ...
+    ]By following these instructions, you will create an impactful Adventure travelling short-form video.
+    Output:
+2025-10-19 21:03:23,610 - INFO - Ollama response :
+2025-10-19 21:03:23,610 - INFO - <Response [200]>
+2025-10-19 21:03:23,611 - INFO - ✅ Finished 'generate_script_and_descriptions' | Time: 29.04s | Memory Change: 0.62 MB | Total Memory: 101.15 MB
+2025-10-19 21:03:23,611 - INFO - Final Data:
+2025-10-19 21:03:23,611 - INFO - Text 1: Tough roads lead to breathtaking views
+2025-10-19 21:03:23,612 - INFO - Image Prompt 1: Person climbing mountain with backpack
+2025-10-19 21:03:23,612 - INFO - Text 2: The journey is worth it every step
+2025-10-19 21:03:23,613 - INFO - Image Prompt 2: Person reaching top of mountain, exhausted but triumphant
+2025-10-19 21:03:23,613 - INFO - Text 3: Nature's splendor awaits those who dare
+2025-10-19 21:03:23,613 - INFO - Image Prompt 3: Beautiful scenery from the top of mountain with clouds and trees
+2025-10-19 21:03:23,614 - INFO - Text 4: Savoring the moment at 20km high
+2025-10-19 21:03:23,614 - INFO - Image Prompt 4: Person sitting on mountain peak, taking in the view with a smile
+2025-10-19 21:03:23,614 - INFO - Text 5: A world of wonder unfolds above
+2025-10-19 21:03:23,615 - INFO - Image Prompt 5: Panoramic view of mountains and valleys from top of mountain
+2025-10-19 21:03:23,615 - INFO - Text 6: Golden hours, endless possibilities
+2025-10-19 21:03:23,615 - INFO - Image Prompt 6: Person looking out at breathtaking sunset on mountain peak
+2025-10-19 21:03:23,615 - INFO - Text 7: But every great journey begins anew
+2025-10-19 21:03:23,615 - INFO - Image Prompt 7: Footprints leading down the mountain, symbolizing journey's end
+2025-10-19 21:03:23,616 - INFO - 
+Step 2: Fetching images from Pexels...
+2025-10-19 21:03:23,618 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 101.15 MB
+2025-10-19 21:03:24,692 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:30,604 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/1.mp4
+2025-10-19 21:03:30,607 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 6.99s | Memory Change: 2.75 MB | Total Memory: 103.90 MB
+2025-10-19 21:03:30,607 - INFO - Image 1 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/1.mp4
+2025-10-19 21:03:30,610 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 103.90 MB
+2025-10-19 21:03:31,741 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:36,637 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/2.mp4
+2025-10-19 21:03:36,638 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 6.03s | Memory Change: 41.72 MB | Total Memory: 145.62 MB
+2025-10-19 21:03:36,639 - INFO - Image 2 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/2.mp4
+2025-10-19 21:03:36,642 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 145.62 MB
+2025-10-19 21:03:37,801 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:40,704 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/3.mp4
+2025-10-19 21:03:40,706 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 4.06s | Memory Change: 0.00 MB | Total Memory: 145.62 MB
+2025-10-19 21:03:40,706 - INFO - Image 3 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/3.mp4
+2025-10-19 21:03:40,708 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 145.62 MB
+2025-10-19 21:03:41,861 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:43,327 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/4.mp4
+2025-10-19 21:03:43,328 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 2.62s | Memory Change: 0.00 MB | Total Memory: 145.62 MB
+2025-10-19 21:03:43,329 - INFO - Image 4 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/4.mp4
+2025-10-19 21:03:43,330 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 145.62 MB
+2025-10-19 21:03:44,439 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:46,303 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4
+2025-10-19 21:03:46,304 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 2.97s | Memory Change: 0.00 MB | Total Memory: 145.62 MB
+2025-10-19 21:03:46,304 - INFO - Image 5 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4
+2025-10-19 21:03:46,307 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 145.62 MB
+2025-10-19 21:03:47,733 - INFO - Pexels video search response status: 200
+2025-10-19 21:03:55,226 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/6.mp4
+2025-10-19 21:03:55,230 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 8.92s | Memory Change: 2.05 MB | Total Memory: 147.67 MB
+2025-10-19 21:03:55,230 - INFO - Image 6 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/6.mp4
+2025-10-19 21:03:55,232 - INFO - ▶️ Starting 'fetch_video_pexels' ... Memory: 147.67 MB
+2025-10-19 21:03:56,134 - INFO - Pexels video search response status: 200
+2025-10-19 21:04:00,929 - INFO - Video saved to /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/7.mp4
+2025-10-19 21:04:00,930 - INFO - ✅ Finished 'fetch_video_pexels' | Time: 5.70s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:00,931 - INFO - Image 7 downloaded: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/7.mp4
+2025-10-19 21:04:00,931 - INFO - 
+Step 3: Generating audio clips with ElevenLabs TTS...
+2025-10-19 21:04:00,933 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:02,136 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.20s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:02,137 - INFO - Audio 1 generated.
+2025-10-19 21:04:02,140 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:03,259 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.12s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:03,259 - INFO - Audio 2 generated.
+2025-10-19 21:04:03,261 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:04,432 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.17s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:04,432 - INFO - Audio 3 generated.
+2025-10-19 21:04:04,434 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:05,512 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.08s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:05,513 - INFO - Audio 4 generated.
+2025-10-19 21:04:05,515 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:06,661 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.15s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:06,662 - INFO - Audio 5 generated.
+2025-10-19 21:04:06,663 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:07,878 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.21s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:07,878 - INFO - Audio 6 generated.
+2025-10-19 21:04:07,880 - INFO - ▶️ Starting 'generate_audio_elevenlabs' ... Memory: 147.67 MB
+2025-10-19 21:04:09,068 - INFO - ✅ Finished 'generate_audio_elevenlabs' | Time: 1.19s | Memory Change: 0.00 MB | Total Memory: 147.67 MB
+2025-10-19 21:04:09,068 - INFO - Audio 7 generated.
+2025-10-19 21:04:09,069 - INFO - 
+Step 4: Creating combined video...
+2025-10-19 21:04:09,070 - INFO - ▶️ Starting 'create_video_from_videos' ... Memory: 147.67 MB
+2025-10-19 21:05:14,796 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 48/49, at time 1.60/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,023 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 50/49, at time 1.67/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,226 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 51/49, at time 1.70/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,407 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 52/49, at time 1.74/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,547 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 53/49, at time 1.77/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,672 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 55/49, at time 1.84/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,795 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 56/49, at time 1.87/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:15,922 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 57/49, at time 1.90/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,040 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 58/49, at time 1.94/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,241 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 60/49, at time 2.00/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,348 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 61/49, at time 2.04/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,451 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 62/49, at time 2.07/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,578 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 63/49, at time 2.10/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,692 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 65/49, at time 2.17/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,798 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 66/49, at time 2.20/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:16,903 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 67/49, at time 2.24/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:17,011 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 68/49, at time 2.27/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:17,108 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 70/49, at time 2.34/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:17,206 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 71/49, at time 2.37/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:05:17,298 - WARNING - /root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/moviepy/video/io/ffmpeg_reader.py:123: UserWarning: Warning: in file /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/5.mp4, 2764800 bytes wanted but 0 bytes read,at frame 72/49, at time 2.40/1.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-10-19 21:06:00,066 - INFO - ✅ Finished 'create_video_from_videos' | Time: 110.98s | Memory Change: 349.36 MB | Total Memory: 497.04 MB
+2025-10-19 21:06:00,070 - INFO - Combined video saved at: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/combined_video.mp4
+2025-10-19 21:06:00,072 - INFO - 
+Extracting audio from video for transcription from /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/combined_video.mp4
+2025-10-19 21:06:01,012 - INFO - Extracted audio saved at: /final_videos/9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5/combined_video.mp3
+2025-10-19 21:06:01,012 - INFO - 
+Total process completed in 186.44 seconds. Workspace: 9074a1bc-108d-4aa5-9fa1-8e4e0d9bceb5

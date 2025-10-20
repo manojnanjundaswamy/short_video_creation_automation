@@ -1,0 +1,158 @@
+FROM node:20-bullseye
+
+ENV N8N_VERSION=1.24.0
+ENV PYTHONUNBUFFERED=1
+ENV VENV_PATH=/home/node/venv
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3 python3-venv python3-pip \
+    ffmpeg \
+    pkg-config \
+    build-essential \
+    git \
+    bash \
+    curl \
+    wget \
+    libffi-dev \
+    libssl-dev \
+    imagemagick \
+    libavformat-dev \
+    libavcodec-dev \
+    libavdevice-dev \
+    libavutil-dev \
+    libavfilter-dev \
+    libswscale-dev \
+    libswresample-dev \
+    fontconfig \
+    fonts-dejavu \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y sudo
+
+RUN apt-get update && apt-get install -y \
+    python3 python3-venv python3-pip \
+    ffmpeg \
+
+
+RUN python3 -m venv $VENV_PATH
+
+ENV PATH="$VENV_PATH/bin:$PATH"
+
+RUN pip install --upgrade pip setuptools wheel && \
+    pip install --no-cache-dir "cython<3.0"
+
+RUN pip install --no-cache-dir \
+        requests \
+        moviepy==1.0.3 \
+        python-dotenv \
+        tqdm \
+        gtts \
+        pydub \
+        pillow==9.5.0 \
+        ffmpeg-python \
+        imagehash \
+        google-api-python-client \
+        google-auth-oauthlib \
+        opencv-python-headless \
+        numpy \
+        psutil
+
+RUN PIP_USE_PEP517=0 pip install --no-cache-dir "av==10.0.0"
+RUN pip install --no-cache-dir faster-whisper==0.7.0
+
+RUN npm install -g n8n@$N8N_VERSION
+
+WORKDIR /home/node
+EXPOSE 5678
+CMD ["n8n", "start"]
+
+
+#WITH CONDA SETUP 
+# FROM node:20-bullseye
+
+# ENV N8N_VERSION=1.24.0
+# ENV PYTHONUNBUFFERED=1
+# ENV VENV_PATH=/home/node/venv
+# ENV CONDA_DIR=/root/miniconda3
+# ENV PATH="$CONDA_DIR/bin:$VENV_PATH/bin:$PATH"
+# ENV CONDA_ENV_NAME=cosyvoice
+
+# # Install system dependencies
+# RUN apt-get update && apt-get install -y \
+#     python3 python3-venv python3-pip \
+#     ffmpeg \
+#     pkg-config \
+#     build-essential \
+#     git \
+#     bash \
+#     curl \
+#     wget \
+#     libffi-dev \
+#     libssl-dev \
+#     imagemagick \
+#     libavformat-dev \
+#     libavcodec-dev \
+#     libavdevice-dev \
+#     libavutil-dev \
+#     libavfilter-dev \
+#     libswscale-dev \
+#     libswresample-dev \
+#     fontconfig \
+#     fonts-dejavu \
+#     sudo \
+#     && rm -rf /var/lib/apt/lists/*
+
+# # Create venv for pre-existing python packages (optional, can be removed if using conda fully)
+# RUN python3 -m venv $VENV_PATH
+
+# # Upgrade pip, setuptools, wheel in venv (optional)
+# RUN $VENV_PATH/bin/pip install --upgrade pip setuptools wheel && \
+#     $VENV_PATH/bin/pip install --no-cache-dir "cython<3.0"
+
+# # Install basic python packages globally (optional - you can move all to conda env later)
+# RUN $VENV_PATH/bin/pip install --no-cache-dir \
+#         requests \
+#         moviepy==1.0.3 \
+#         python-dotenv \
+#         tqdm \
+#         gtts \
+#         pydub \
+#         pillow==9.5.0 \
+#         ffmpeg-python \
+#         imagehash \
+#         google-api-python-client \
+#         google-auth-oauthlib \
+#         opencv-python-headless \
+#         numpy \
+#         psutil \
+#     && PIP_USE_PEP517=0 $VENV_PATH/bin/pip install --no-cache-dir "av==10.0.0" \
+#     && $VENV_PATH/bin/pip install --no-cache-dir faster-whisper==0.7.0
+
+# # Install n8n globally with npm
+# RUN npm install -g n8n@$N8N_VERSION
+
+# # Install Miniconda
+# RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py39_25.5.1-1-Linux-x86_64.sh -O /tmp/miniconda.sh && \
+#     bash /tmp/miniconda.sh -b -p $CONDA_DIR && \
+#     rm /tmp/miniconda.sh
+
+# # Initialize conda for bash shell usage
+# RUN $CONDA_DIR/bin/conda init bash
+
+# # Set up Conda environment and install CosyVoice dependencies
+# RUN bash -c " \
+#     source $CONDA_DIR/etc/profile.d/conda.sh && \
+#     conda create -n $CONDA_ENV_NAME -y python=3.10 && \
+#     conda activate $CONDA_ENV_NAME && \
+#     git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git /opt/CosyVoice && \
+#     cd /opt/CosyVoice && \
+#     git submodule update --init --recursive && \
+#     pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com \
+# "
+
+# WORKDIR /home/node
+
+# EXPOSE 5678
+
+# CMD ["n8n", "start"]

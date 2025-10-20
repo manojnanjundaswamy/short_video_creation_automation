@@ -1,0 +1,159 @@
+import requests
+import json
+from pprint import pprint
+
+def fetch_imagedescription_and_script_ollama(prompt, url, model="llama3.1:8b"):
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False
+    }
+    response = requests.post(url, json=payload)
+    if response.status_code != 200:
+        print("Error:", response.status_code, response.text)
+        return [], []
+    response_json = response.json()
+    # Ollama returns the result in 'response'
+    content = response_json.get("response", "").strip()
+    try:
+        output = json.loads(content)
+        pprint(output)
+        image_prompts = [k['image_description'] for k in output]
+        texts = [k['text'] for k in output]
+        return image_prompts, texts
+    except Exception as e:
+        print("Failed to parse JSON from Ollama response:", e)
+        print("Raw content:", content)
+        return [], []
+
+# Example topics and goals
+topic = "Success and Achievement"
+goal = "inspire people to overcome challenges, achieve success and celebrate their victories"
+
+prompt_prefix = f"""You are tasked with creating a script for a {topic} video that is about 30 seconds.
+Your goal is to {goal}.
+Please follow these instructions to create an engaging and impactful video:
+1. Begin by setting the scene and capturing the viewer's attention with a captivating visual.
+2. Each scene cut should occur every 5-10 seconds, ensuring a smooth flow and transition throughout the video.
+3. For each scene cut, provide a detailed description of the stock image being shown.
+4. Along with each image description, include a corresponding text that complements and enhances the visual. The text should be concise and powerful.
+5. Ensure that the sequence of images and text builds excitement and encourages viewers to take action.
+6. Strictly output your response in a JSON list format, adhering to the following sample structure:"""
+
+sample_output = """
+   [
+       { "image_description": "Description of the first image here.", "text": "Text accompanying the first scene cut." },
+       { "image_description": "Description of the second image here.", "text": "Text accompanying the second scene cut." },
+       ...
+   ]"""
+
+prompt_postinstruction = f"""By following these instructions, you will create an impactful {topic} short-form video.
+Output:"""
+
+prompt = prompt_prefix + sample_output + prompt_postinstruction
+
+# Ollama local API endpoint
+ollama_url = "http://localhost:11434/api/generate"
+
+image_prompts, texts = fetch_imagedescription_and_script_ollama(prompt, ollama_url, model="llama3.1:8b")
+print("image_prompts: ", image_prompts)
+print("texts: ", texts)
+print(len(texts))
+
+
+
+# import requests
+# import json
+# from pprint import pprint
+
+# def fetch_imagedescription_and_script(prompt,url,headers):
+
+#     # Define the payload for the chat model
+#     messages = [
+#         {"role": "system", "content": "You are an expert short form video script writer for Instagram Reels and Youtube shorts."},
+#         {"role": "user", "content": prompt}
+#     ]
+
+#     chatgpt_payload = {
+#         "model": "gpt-3.5-turbo-16k",
+#         "messages": messages,
+#         "temperature": 1.3,
+#         "max_tokens": 2000,
+#         "top_p": 1,
+#         "stop": ["###"]
+#     }
+
+#     # Make the request to OpenAI's API
+#     response = requests.post(url, json=chatgpt_payload, headers=headers)
+#     response_json = response.json()
+
+#     # Extract data from the API's response
+#     output = json.loads(response_json['choices'][0]['message']['content'].strip())
+#     pprint (output)
+#     image_prompts = [k['image_description'] for k in output]
+#     texts = [k['text'] for k in output]
+
+#     return image_prompts, texts
+
+
+# # Daily motivation, personal growth and positivity
+
+# topic = "Success and Achievement"
+# goal = "inspire people to overcome challenges, achieve success and celebrate their victories"
+
+# # topic = "Morning afformations"
+# # goal = "Encourage viewers to start their day with a positive mindset."
+
+# # topic = "Self-Care and Wellness"
+# # goal = "offer tips and reminders for self-care practices, stress reduction, and maintaining overall well-being"
+
+# # topic = "Gratitude and Positivity"
+# # goal = "emphasize gratitude and positive thinking"
+
+# # topic = "Boost Confidence"
+# # goal = "help build self-confidence and self-esteem"
+
+# # topic = "Happiness and Joy"
+# # goal = "help people find happiness in simple moments and enjoy life's journey"
+
+# # topic = "Resilience and Adversity"
+# # goal = "help build resilience in the face of adversity"
+
+# # topic = "Relationships and Connections"
+# # goal = "help build meaningful relationships, foster connections, and spread love"
+
+# # topic = "Mindfulness and Presence"
+# # goal = "encourage mindfulness and being present in the moment"
+
+# # topic = "Empowerment"
+# # goal = "empower viewers to take control of their lives, make positive choices, and pursue their dreams"
+
+# # topic = "Time Management and Productivity"
+# # goal = "provide tips about managing time effectively, staying organized, and being productive"
+
+# prompt_prefix = """You are tasked with creating a script for a {} video that is about 30 seconds.
+# Your goal is to {}.
+# Please follow these instructions to create an engaging and impactful video:
+# 1. Begin by setting the scene and capturing the viewer's attention with a captivating visual.
+# 2. Each scene cut should occur every 5-10 seconds, ensuring a smooth flow and transition throughout the video.
+# 3. For each scene cut, provide a detailed description of the stock image being shown.
+# 4. Along with each image description, include a corresponding text that complements and enhances the visual. The text should be concise and powerful.
+# 5. Ensure that the sequence of images and text builds excitement and encourages viewers to take action.
+# 6. Strictly output your response in a JSON list format, adhering to the following sample structure:""".format(topic,goal)
+
+# sample_output="""
+#    [
+#        { "image_description": "Description of the first image here.", "text": "Text accompanying the first scene cut." },
+#        { "image_description": "Description of the second image here.", "text": "Text accompanying the second scene cut." },
+#        ...
+#    ]"""
+
+# prompt_postinstruction="""By following these instructions, you will create an impactful {} short-form video.
+# Output:""".format(topic)
+
+# prompt = prompt_prefix + sample_output + prompt_postinstruction
+
+# image_prompts, texts = fetch_imagedescription_and_script(prompt,chatgpt_url,chatgpt_headers)
+# print("image_prompts: ", image_prompts)
+# print("texts: ", texts)
+# print (len(texts))
